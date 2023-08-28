@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:quiz_app/screens/questions_screen.dart';
 
 import 'package:quiz_app/widgets/start_widget/start_fill_part.dart';
+import 'package:quiz_app/widgets/start_widget/start_topStack.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -33,37 +34,7 @@ class _StartScreenState extends State<StartScreen> {
       body: SingleChildScrollView(
         reverse: true,
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Stack(
-            alignment: AlignmentDirectional.topCenter,
-            children: [
-              SvgPicture.asset(
-                'assets/svg/Vector1.svg',
-                width: MediaQuery.of(context).size.width,
-              ),
-              SvgPicture.asset(
-                'assets/svg/Group3.svg',
-                width: MediaQuery.of(context).size.width,
-              ),
-              Column(
-                children: [
-                  const SizedBox(
-                    height: 70,
-                  ),
-                  Image.asset(
-                    'assets/images/light_bulb.png',
-                    width: 200,
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Text(
-                    'Dahoop!',
-                    style: TextStyle(fontSize: 60, color: Color(0xFF39F1C1)),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const StartTopStack(),
           const SizedBox(
             height: 100,
           ),
