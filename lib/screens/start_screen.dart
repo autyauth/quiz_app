@@ -22,12 +22,6 @@ class _StartScreenState extends State<StartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    void _pressPlay() {
-      Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const QuestionsScreen()))
-          .then((value) => textcontroller.clear());
-    }
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF1F1147),
@@ -39,7 +33,13 @@ class _StartScreenState extends State<StartScreen> {
             height: 100,
           ),
           StartFill(
-            onPlay: _pressPlay,
+            onPlay: () {
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const QuestionsScreen()))
+                  .then((value) => textcontroller.clear());
+            },
             textController: textcontroller,
           ),
           Padding(
