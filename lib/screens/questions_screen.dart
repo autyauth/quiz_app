@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz_app/Router/route_constants.dart';
 import 'package:quiz_app/data/questions.dart';
-import 'package:quiz_app/screens/result_screen.dart';
 import 'package:quiz_app/widgets/question/answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
