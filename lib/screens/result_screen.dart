@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_app/app_provider.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/widgets/questions_summary/questions_summary.dart';
 
@@ -57,6 +59,7 @@ class ResultScreen extends StatelessWidget {
           (data) => data['user_answer'] == data['correct_answer'],
         )
         .length;
+    final nameProvider = context.read<AppProvider>().name;
     return Scaffold(
       backgroundColor: const Color(0xFF1F1147),
       body: SingleChildScrollView(
@@ -68,7 +71,7 @@ class ResultScreen extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                'คุณตอบถูกทั้งหมด $numCorrectQuestion ข้อ จาก $numTotalQustions ข้อ',
+                '$nameProvider ตอบถูกทั้งหมด $numCorrectQuestion ข้อ จาก $numTotalQustions ข้อ',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -76,7 +79,7 @@ class ResultScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                'คุณได้คะแนน $totalScore คะแนน เต็ม $totalScoreQuestion คะแนน ',
+                '$nameProvider ได้คะแนน $totalScore คะแนน เต็ม $totalScoreQuestion คะแนน ',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

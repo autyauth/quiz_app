@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/Router/route_constants.dart';
+import 'package:quiz_app/app_provider.dart';
 import 'package:quiz_app/screens/questions_screen.dart';
 
 import 'package:quiz_app/widgets/start_widget/start_fill_part.dart';
@@ -36,6 +38,9 @@ class _StartScreenState extends State<StartScreen> {
           ),
           StartFill(
             onPlay: () {
+              final nameProvider =
+                  Provider.of<AppProvider>(context, listen: false);
+              nameProvider.setName(textcontroller.text);
               context
                   .pushNamed(
                     RouteConstants.question,
