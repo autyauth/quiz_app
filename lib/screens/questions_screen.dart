@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quiz_app/Router/route_constants.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/screens/result_screen.dart';
 import 'package:quiz_app/widgets/question/answer_button.dart';
@@ -43,12 +45,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       if (currentQuestionIndex + 1 < questions.length) {
         currentQuestionIndex++;
       } else {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => ResultScreen(
-                      chooseAnswers: _selectedAnswer,
-                    ))).then((value) => _refresh());
+        context.pushNamed(RouteConstants.result, extra: _selectedAnswer);
+        //.then((value) => _refresh());
       }
     });
   }

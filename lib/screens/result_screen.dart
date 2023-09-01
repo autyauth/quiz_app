@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/widgets/questions_summary/questions_summary.dart';
 
@@ -56,9 +57,12 @@ class ResultScreen extends StatelessWidget {
               ),
               QuestionSummary(summaryData),
               TextButton.icon(
-                onPressed: (() => Navigator.of(context)
-                  ..pop()
-                  ..pop()),
+                onPressed: (() {
+                  context
+                    //..pop()
+                    ..pop()
+                    ..pop();
+                }),
                 icon: const Icon(Icons.refresh),
                 label: const Text('Restart Quiz!'),
               )
