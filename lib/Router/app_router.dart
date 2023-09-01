@@ -27,7 +27,7 @@ class AppRouter {
         path: '/result',
         builder: (context, state) => ResultScreen(
           chooseAnswers:
-              state.extra as List<String>, // Get data from queryParameters
+              state.extra as List<String>, // Get data from extra parameter.
         ),
       ),
     ],

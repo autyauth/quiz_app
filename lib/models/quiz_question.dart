@@ -10,4 +10,6 @@ class QuizQuestion {
     shuffledList.shuffle();
     return shuffledList;
   }
+
+  int get isScore => score;
 }

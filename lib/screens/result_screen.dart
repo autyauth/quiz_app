@@ -12,18 +12,41 @@ class ResultScreen extends StatelessWidget {
   final List<String> chooseAnswers;
 
   List<Map<String, Object>> get summaryData {
+    final List<int> scores = [];
     final List<Map<String, Object>> summary = [];
 
     for (int i = 0; i < chooseAnswers.length; i++) {
+      if (chooseAnswers[i] == questions[i].choices[0]) {
+        scores.add(questions[i].isScore);
+      } else {
+        scores.add(0);
+      }
       summary.add({
         'question_index': i,
         'question': questions[i].text,
         'correct_answer': questions[i].choices[0],
         'user_answer': chooseAnswers[i],
+        'score': scores[i],
       });
     }
 
     return summary;
+  }
+
+  int get totalScore {
+    int total = 0;
+    for (int i = 0; i < summaryData.length; i++) {
+      total += summaryData[i]['score'] as int;
+    }
+    return total;
+  }
+
+  int get totalScoreQuestion {
+    int total = 0;
+    for (int i = 0; i < questions.length; i++) {
+      total += questions[i].isScore;
+    }
+    return total;
   }
 
   @override
@@ -52,8 +75,16 @@ class ResultScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              Text(
+                'คุณได้คะแนน $totalScore คะแนน เต็ม $totalScoreQuestion คะแนน ',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               QuestionSummary(summaryData),
               TextButton.icon(
