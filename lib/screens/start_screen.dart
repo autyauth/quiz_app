@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/Router/route_constants.dart';
 import 'package:quiz_app/app_provider.dart';
+import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/widgets/question/create_question.dart';
 import 'package:quiz_app/screens/questions_screen.dart';
 
 import 'package:quiz_app/widgets/start_widget/start_fill_part.dart';
@@ -49,6 +51,11 @@ class _StartScreenState extends State<StartScreen> {
             },
             textController: textcontroller,
           ),
+          CreateQuestionScreen(onQuestionCreated: (question) {
+            setState(() {
+              questions.add(question);
+            });
+          }),
           Padding(
             padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).viewInsets.bottom),

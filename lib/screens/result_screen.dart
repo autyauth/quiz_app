@@ -93,7 +93,6 @@ class ResultScreen extends StatelessWidget {
               TextButton.icon(
                 onPressed: (() {
                   context
-                    //..pop()
                     ..pop()
                     ..pop();
                 }),

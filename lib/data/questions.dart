@@ -1,7 +1,7 @@
 import 'package:quiz_app/models/quiz_question.dart';
 
-const questions = [
-  QuizQuestion(
+List<QuizQuestion> questions = [
+  const QuizQuestion(
     'How to update data on StatefulWidget',
     [
       'Use setState()',
@@ -11,7 +11,7 @@ const questions = [
     ],
     1,
   ),
-  QuizQuestion(
+  const QuizQuestion(
     'Question 2',
     [
       'Choice2 1',
@@ -21,7 +21,7 @@ const questions = [
     ],
     1,
   ),
-  QuizQuestion(
+  const QuizQuestion(
     'Question 3',
     [
       'Choice2 1',
@@ -31,7 +31,7 @@ const questions = [
     ],
     1,
   ),
-  QuizQuestion(
+  const QuizQuestion(
     'Question 4',
     [
       'Choice2 1',
